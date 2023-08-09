@@ -1,0 +1,5 @@
+<%= simple_form_for [@restaurant, @review] do |f|%>
+  <%= f.input :content, placeholder: 'Enter Review' %>
+  <%= f.input :rating, collection: 0..5, prompt: "Enter Rating", selected: 3 %>
+  <%= f.submit class: 'btn btn-primary' %>
+<% end %>

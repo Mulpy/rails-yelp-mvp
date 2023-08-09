@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+    <%= @restaurant.name %>
+  </div>
+  <div class="card-trip">
+    <img src="https://i.pinimg.com/originals/1a/ed/6e/1aed6e30c7e12a2d30fffe9fa712a305.jpg" />
+    <div class="card-trip-infos">
+      <div>
+        <h2><%= @restaurant.name %></h2>
+        <p><strong><%= @restaurant.category.capitalize %> Food </strong></p>
+        <p>Address: <%= @restaurant.address %></p>
+        <p>Tel: <strong><%= @restaurant.phone_number %></strong></p>
+        <% if @restaurant.reviews.any? %>
+          <% @scores = [] %>
+          <% @restaurant.reviews.each do |review| %>
+            <% @scores << review.rating %>
+          <% end %>
+          <h2>Average Rating: <strong><%= ((@scores.sum).fdiv(@scores.size)).round(2)  %></strong></h2>
+        <% end %>
+      </div>
+      <i class="fa-solid fa-utensils card-trip-user avatar-bordered"></i>
+      <h3 class="card-trip-pricing">Cost: <%= ['$', '$$', '$$$'].sample %></h3>
+      <%= link_to 'Leave a review', new_restaurant_review_path(@restaurant), class: 'btn btn-primary' %>
+    </div>
+    <% if @restaurant.reviews.any? %>
+      <% @restaurant.reviews.each do |review| %>
+        <div class="card-product">
+          <div class="card-product-infos">
+            <div class="review">
+              <h3>Review: <em>"<%= review.content %>"</em></h3>
+              <h3>Rating: <strong><%= review.rating %></strong></h3>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

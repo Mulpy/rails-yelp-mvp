@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+    Mulpy's Restaurant Finder
+  </div>
+  <% @restaurants.each do |restaurant| %>
+    <div class="card-product">
+      <img src="https://swabirestaurants.com/images/food-4-original-1200x800.jpg" />
+      <div class="card-product-infos">
+        <h2><%= link_to restaurant.name, restaurant_path(restaurant) %></h2>
+        <br>
+        <p><strong><%= restaurant.category.capitalize %> Food </strong></p>
+        <p>Address: <%= restaurant.address %></p>
+        <p>Tel: <strong><%= restaurant.phone_number %></strong></p>
+      </div>
+    </div>
+  <% end %>
+</div>
