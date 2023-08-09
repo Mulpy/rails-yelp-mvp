@@ -12,7 +12,7 @@ puts "seeding DB"
 
 5.times do
   categories = %w[chinese italian japanese french belgian]
-  Restaurant.create(name: Faker::Restaurant.name, address: Faker::Address.full_address, category: categories.sample, phone_number: Faker::PhoneNumber.phone_number_with_country_code )
+  Restaurant.create!(name: Faker::Restaurant.name, address: Faker::Address.full_address, category: categories.sample, phone_number: Faker::PhoneNumber.phone_number_with_country_code )
 end
 
 puts "created #{Restaurant.all}"
