@@ -6,7 +6,7 @@
     <% @restaurants.each do |restaurant| %>
       <%= link_to restaurant_path(restaurant) do%>
         <div class="card-product">
-          <img src="https://swabirestaurants.com/images/food-4-original-1200x800.jpg" />
+          <%= image_tag "http://source.unsplash.com/featured/?#{restaurant.category} food>&#{rand(1000)}" %>
           <div class="card-product-infos">
             <h2><%= restaurant.name %></h2>
             <br>

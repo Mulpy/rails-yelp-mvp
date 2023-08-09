@@ -3,7 +3,7 @@
     <%= @restaurant.name %>
   </div>
   <div class="card-trip">
-    <img src="https://i.pinimg.com/originals/1a/ed/6e/1aed6e30c7e12a2d30fffe9fa712a305.jpg" />
+    <%= image_tag "http://source.unsplash.com/featured/?#{@restaurant.category} food>&#{rand(1000)}" %>
     <div class="card-trip-infos">
       <div>
         <h2><%= @restaurant.name %></h2>
@@ -31,7 +31,7 @@
     <% if @restaurant.reviews.any? %>
       <% @restaurant.reviews.each do |review| %>
         <div class="review">
-          <h6><em><strong><%= @restaurant.name %></strong> was "<%= review.content %>"</em> and I would give it <strong><%= review.rating %></strong> out of 5.</h6>
+          <h6><em><strong>"<%= review.content %>"</strong> - I would give it <strong><%= review.rating %></strong> out of 5.</em></h6>
           <div class="d-flex">
             <% review.rating.times do %>
               <i class="fas fa-star"></i>
