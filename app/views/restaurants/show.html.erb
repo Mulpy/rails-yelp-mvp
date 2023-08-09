@@ -19,18 +19,19 @@
         <% end %>
       </div>
       <i class="fa-solid fa-utensils card-trip-user avatar-bordered"></i>
-      <h3 class="card-trip-pricing">Cost: <%= ['$', '$$', '$$$'].sample %></h3>
-      <%= link_to 'Leave a review', new_restaurant_review_path(@restaurant), class: 'btn btn-primary' %>
+      <div class="cards">
+        <div class="card">
+          <%= link_to 'Leave a review', new_restaurant_review_path(@restaurant), class: 'btn btn-ghost' %>
+        </div>
+      </div>
+    </div>
+    <div class="center">
+      <h2>Check out the latest reviews for <%= @restaurant.name %></h2>
     </div>
     <% if @restaurant.reviews.any? %>
       <% @restaurant.reviews.each do |review| %>
-        <div class="card-product">
-          <div class="card-product-infos">
-            <div class="review">
-              <h3>Review: <em>"<%= review.content %>"</em></h3>
-              <h3>Rating: <strong><%= review.rating %></strong></h3>
-            </div>
-          </div>
+        <div class="review">
+          <h6><em><strong><%= @restaurant.name %></strong> was "<%= review.content %>"</em> and I would give it <strong><%= review.rating %></strong> out of 5.</h6>
         </div>
       <% end %>
     <% end %>
