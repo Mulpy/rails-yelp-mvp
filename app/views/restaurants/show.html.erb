@@ -32,6 +32,14 @@
       <% @restaurant.reviews.each do |review| %>
         <div class="review">
           <h6><em><strong><%= @restaurant.name %></strong> was "<%= review.content %>"</em> and I would give it <strong><%= review.rating %></strong> out of 5.</h6>
+          <div class="d-flex">
+            <% review.rating.times do %>
+              <i class="fas fa-star"></i>
+            <% end %>
+            <% (5 - review.rating).times do %>
+              <i class="far fa-star"></i>
+            <% end %>
+          </div>
         </div>
       <% end %>
     <% end %>
